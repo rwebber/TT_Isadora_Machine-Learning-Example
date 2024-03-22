@@ -1,1 +1,9 @@
+# virtual ENV
+/env_ML/
+
+# Isadora binary files
+/*.izz
+
+# Temporary data files
 /training_data.json
+/trained_model.pkl
