@@ -1,3 +1,4 @@
+import os
 import json
 import joblib
 from sklearn.ensemble import RandomForestClassifier
@@ -6,8 +7,14 @@ from sklearn.ensemble import RandomForestClassifier
 # iz_input 2 "train_trigger"
 # iz_output 1 "training_status"
 
-MODEL_FILE = 'trained_model.pkl'
-DATA_FILE = 'training_data.json'
+python_modules_path = os.path.join(os.path.dirname(__file__), '')
+# MODEL_FILE = python_modules_path + 'trained_model.pkl'
+# DATA_FILE = python_modules_path + 'training_data.json'
+
+project_directory = os.path.abspath(os.path.join(python_modules_path, os.pardir))
+MODEL_FILE = project_directory + "\\" + 'trained_model.pkl'
+DATA_FILE = project_directory + "\\" + 'training_data.json'
+
 TRAINING_STATUS = False
 
 def save_data(data_json):
@@ -28,7 +35,7 @@ def save_data(data_json):
         if not isinstance(data, dict) or 'features' not in data or 'label' not in data:
             return "Invalid data format. Expected JSON with 'features' and 'label'."
         with open(DATA_FILE, 'a') as file:
-            json.dump(data, file)
+            json.dump(data, file)  # creates new file if not already available
             file.write('\n')
         return "Data saved"
     except json.JSONDecodeError:

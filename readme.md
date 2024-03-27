@@ -1,4 +1,4 @@
-# TT Isadora ML example
+# TT Isadora ML Example
 
 This example file offers users a quick and easy way to collect numeric data bundles and create a Machine Learning trained model from the sample data, that can be used to classify additional data bundles in future Isadora scenes.
 
