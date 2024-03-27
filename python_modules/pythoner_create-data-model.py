@@ -8,12 +8,11 @@ from sklearn.ensemble import RandomForestClassifier
 # iz_output 1 "training_status"
 
 python_modules_path = os.path.join(os.path.dirname(__file__), '')
-# MODEL_FILE = python_modules_path + 'trained_model.pkl'
-# DATA_FILE = python_modules_path + 'training_data.json'
-
 project_directory = os.path.abspath(os.path.join(python_modules_path, os.pardir))
-MODEL_FILE = project_directory + "\\" + 'trained_model.pkl'
-DATA_FILE = project_directory + "\\" + 'training_data.json'
+
+# Using os.path.join() to create cross-platform compatible file paths
+MODEL_FILE = os.path.join(project_directory, 'trained_model.pkl')
+DATA_FILE = os.path.join(project_directory, 'training_data.json')
 
 TRAINING_STATUS = False
 
